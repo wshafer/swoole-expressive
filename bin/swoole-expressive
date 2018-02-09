@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+// Setup/verify autoloading
+if (file_exists($a = __DIR__ . '/../../../../vendor/autoload.php')) {
+    require $a;
+} elseif (file_exists($a = __DIR__ . '/../vendor/autoload.php')) {
+    require $a;
+} elseif (file_exists($a = __DIR__ . '/../autoload.php')) {
+    require $a;
+} else {
+    fwrite(STDERR, 'Cannot locate autoloader; please run "composer install"' . PHP_EOL);
+    exit(1);
+}
+
+/** @var \Psr\Container\ContainerInterface $container */
+$container = null;
+
+// Get the container
+if (file_exists($a = __DIR__ . '/../../../../config/container.php')) {
+    $container = require $a;
+} elseif (file_exists($a = __DIR__ . '/../../config/container.php')) {
+    $container = require $a;
+} else {
+    fwrite(STDERR, 'Cannot locate container' . PHP_EOL);
+    exit(1);
+}
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+/** @var \Symfony\Component\Console\Command\Command $command */
+$command = $container->get(\WShafer\SwooleExpressive\Command\SwooleRunnerCommand::class);
+$application->add($command);
+$application->setDefaultCommand($command->getName());
+
+$application->run();

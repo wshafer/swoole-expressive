@@ -1,0 +1,29 @@
+{
+    "name": "wshafer/swoole-expressive",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Westin Shafer",
+            "email": "shafer_w2002@yahoo.com"
+        }
+    ],
+    "description": "Swoole + Zend Expressive Runner",
+    "type": "library",
+    "require": {
+        "php": "^7.2",
+        "ext-swoole": ">=2.1.0",
+        "zendframework/zend-expressive": "^3.0.0alpha5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5.4",
+        "squizlabs/php_codesniffer": "^2.9.1"
+    },
+    "extra": {
+        "zf": {
+            "config-provider": "WShafer\\SwooleExpressive\\ConfigProvider"
+        }
+    },
+    "bin": [
+        "bin/swoole-expressive"
+    ]
+}
