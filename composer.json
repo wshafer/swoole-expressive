@@ -18,6 +18,11 @@
         "phpunit/phpunit": "^6.5.4",
         "squizlabs/php_codesniffer": "^2.9.1"
     },
+    "autoload": {
+        "psr-4": {
+            "WShafer\\SwooleExpressive\\": "src/"
+        }
+    },
     "extra": {
         "zf": {
             "config-provider": "WShafer\\SwooleExpressive\\ConfigProvider"
