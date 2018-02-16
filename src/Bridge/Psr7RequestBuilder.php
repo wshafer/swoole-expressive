@@ -1,15 +1,14 @@
 <?php
+declare(strict_types=1);
 
 namespace WShafer\SwooleExpressive\Bridge;
 
 use Swoole\Http\Request as SwooleRequest;
 use Zend\Diactoros\ServerRequest;
 
-class Request
+class Psr7RequestBuilder
 {
-    public static function toPsr7(
-        SwooleRequest $swooleRequest
-    ) {
+    public function build(SwooleRequest $swooleRequest) {
         $body = (string) $swooleRequest->rawcontent();
 
         if (empty($body)) {

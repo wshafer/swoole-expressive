@@ -1,13 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace WShafer\SwooleExpressive\Bridge;
 
 use Psr\Http\Message\ResponseInterface;
 use Swoole\Http\Response as SwooleResponse;
+use Zend\HttpHandlerRunner\Emitter\SapiEmitterTrait;
 
-class Response
+class SwooleResponseEmitter
 {
-    public static function toSwoole(
+    use SapiEmitterTrait;
+
+    public function toSwoole(
         ResponseInterface $psr7Response,
         SwooleResponse $swooleResponse = null
     ) {
@@ -16,22 +20,29 @@ class Response
         }
 
         $swooleResponse->status($psr7Response->getStatusCode());
-        self::populateHeaders($psr7Response, $swooleResponse);
-        self::sendResponse($psr7Response, $swooleResponse);
+        $this->populateHeaders($psr7Response, $swooleResponse);
+        $this->sendResponse($psr7Response, $swooleResponse);
     }
 
-    protected static function populateHeaders(
+    protected function populateHeaders(
         ResponseInterface $psr7Response,
         SwooleResponse $swooleResponse
     ) {
         $headers = $psr7Response->getHeaders();
 
-        foreach ($headers as $name => $value) {
-            $swooleResponse->header($name, implode('; ', $value));
+        foreach ($headers as $name => $values) {
+            $name  = $this->filterHeader($name);
+
+            if ($name === 'Set-Cookie') {
+                $swooleResponse->header($name, end($values));
+                continue;
+            }
+
+            $swooleResponse->header($name, implode(', ', $values));
         }
     }
 
-    protected static function sendResponse(
+    protected function sendResponse(
         ResponseInterface $psr7Response,
         SwooleResponse $swooleResponse
     ) {
