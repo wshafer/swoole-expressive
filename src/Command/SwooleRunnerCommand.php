@@ -81,8 +81,8 @@ class SwooleRunnerCommand extends Command
             throw $e;
         }
 
-        $host = $input->getOption('host');
-        $port = $input->getOption('port');
+        $host = (string) $input->getOption('host');
+        $port = (int) $input->getOption('port');
 
         $http = new \swoole_http_server($host, $port);
         $app = $this->app;

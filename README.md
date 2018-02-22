@@ -33,7 +33,7 @@ $ composer require wshafer/swoole-expressive:dev-master
 ## Usage
 
 ```bash
-$ vendor/bin/swoole-expressive --host 0.0.0.0 --port 8080
+$ vendor/bin/swoole-expressive --host=0.0.0.0 --port=8080
 ```
 
 Open your browser to http://127.0.0.1:8080 to validate you're
