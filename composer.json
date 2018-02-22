@@ -19,6 +19,7 @@
         "psr/log": "^1.0"
     },
     "require-dev": {
+        "phpmd/phpmd" : "@stable",
         "phpunit/phpunit": "^6.5.4",
         "squizlabs/php_codesniffer": "^2.9.1"
     },

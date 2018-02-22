@@ -78,7 +78,7 @@ class SwooleRunnerCommand extends Command
             $this->setupRunner->execute();
         } catch (SwooleExpressiveException $e) {
             $output->writeln($e->getMessage());
-            exit(1);
+            throw $e;
         }
 
         $host = $input->getOption('host');

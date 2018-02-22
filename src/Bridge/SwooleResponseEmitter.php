@@ -15,10 +15,6 @@ class SwooleResponseEmitter
         ResponseInterface $psr7Response,
         SwooleResponse $swooleResponse = null
     ) {
-        if (!$swooleResponse) {
-            $swooleResponse = new SwooleResponse();
-        }
-
         $swooleResponse->status($psr7Response->getStatusCode());
         $this->populateHeaders($psr7Response, $swooleResponse);
         $this->sendResponse($psr7Response, $swooleResponse);

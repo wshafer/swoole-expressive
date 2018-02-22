@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 7.2
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - composer self-update
+  - composer install --prefer-dist -n
+
+script:
+  - ./vendor/bin/phpunit tests/ --coverage-clover clover.xml
+  - ./vendor/bin/phpcs --extensions=php --standard=PSR2 --ignore=*/_files/* src/ tests/
+  - ./vendor/bin/phpmd ./src text ./phpmd.xml --suffixes php
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover clover.xml

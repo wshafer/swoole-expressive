@@ -32,12 +32,12 @@ trait RequestMockTrait
                 'server_protocol' => 'HTTP/1.1',
                 'server_software' => 'swoole-http-server',
             ],
-            'request' => NULL,
-            'cookie' => NULL,
-            'get' => NULL,
-            'files' => NULL,
-            'post' => NULL,
-            'tmpfiles' => NULL,
+            'request' => null,
+            'cookie' => null,
+            'get' => null,
+            'files' => null,
+            'post' => null,
+            'tmpfiles' => null,
         ];
     }
 
@@ -69,15 +69,15 @@ trait RequestMockTrait
                 'server_protocol' => 'HTTP/1.1',
                 'server_software' => 'swoole-http-server',
             ],
-            'request' => NULL,
-            'cookie' => NULL,
-            'get' => NULL,
-            'files' => NULL,
+            'request' => null,
+            'cookie' => null,
+            'get' => null,
+            'files' => null,
             'post' => [
                 'test' => 'test',
                 'test2' => 'test2',
             ],
-            'tmpfiles' => NULL,
+            'tmpfiles' => null,
         ];
     }
 
@@ -109,9 +109,9 @@ trait RequestMockTrait
                 'server_protocol' => 'HTTP/1.1',
                 'server_software' => 'swoole-http-server',
             ],
-            'request' => NULL,
-            'cookie' => NULL,
-            'get' => NULL,
+            'request' => null,
+            'cookie' => null,
+            'get' => null,
             'files' => [
                 'testfile' => [
                     'name' => 'Screen Shot 2018-02-07 at 5.34.57 PM.png',
@@ -157,8 +157,8 @@ trait RequestMockTrait
                 'server_protocol' => 'HTTP/1.1',
                 'server_software' => 'swoole-http-server',
             ],
-            'request' => NULL,
-            'cookie' => NULL,
+            'request' => null,
+            'cookie' => null,
             'get' => [
                 'test' => '1',
                 'test2' => '2',
@@ -167,9 +167,9 @@ trait RequestMockTrait
                     1 => 'param2',
                 ],
             ],
-            'files' => NULL,
-            'post' => NULL,
-            'tmpfiles' => NULL,
+            'files' => null,
+            'post' => null,
+            'tmpfiles' => null,
         ];
     }
 
@@ -199,14 +199,14 @@ trait RequestMockTrait
                 'server_protocol' => 'HTTP/1.1',
                 'server_software' => 'swoole-http-server',
             ],
-            'request' => NULL,
+            'request' => null,
             'cookie' => [
                 'Cookie_1' => 'value',
             ],
-            'get' => NULL,
-            'files' => NULL,
-            'post' => NULL,
-            'tmpfiles' => NULL,
+            'get' => null,
+            'files' => null,
+            'post' => null,
+            'tmpfiles' => null,
         ];
     }
 }

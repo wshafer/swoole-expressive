@@ -1,4 +1,7 @@
 # Swoole + Zend Expressive
+[![Build Status](https://travis-ci.org/wshafer/swoole-expressive.svg?branch=master)](https://travis-ci.org/wshafer/swoole-expressive)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wshafer/swoole-expressive/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wshafer/swoole-expressive/?branch=master)
+[![codecov](https://codecov.io/gh/wshafer/swoole-expressive/branch/master/graph/badge.svg)](https://codecov.io/gh/wshafer/swoole-expressive)
 
 This package provides a Zend Expressive 3 runner for Swoole.
 

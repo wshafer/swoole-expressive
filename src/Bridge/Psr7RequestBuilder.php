@@ -8,7 +8,8 @@ use Zend\Diactoros\ServerRequest;
 
 class Psr7RequestBuilder
 {
-    public function build(SwooleRequest $swooleRequest) {
+    public function build(SwooleRequest $swooleRequest)
+    {
         $body = (string) $swooleRequest->rawcontent();
 
         if (empty($body)) {

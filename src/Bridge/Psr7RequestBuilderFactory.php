@@ -7,6 +7,9 @@ use Psr\Container\ContainerInterface;
 
 class Psr7RequestBuilderFactory
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function __invoke(ContainerInterface $container)
     {
         return new Psr7RequestBuilder();

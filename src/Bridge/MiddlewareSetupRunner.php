@@ -20,6 +20,10 @@ class MiddlewareSetupRunner implements MiddlewareSetupRunnerInterface
     /** @var ContainerInterface */
     protected $container;
 
+    protected $pipelineFile =  __DIR__ . '/../../../../../config/pipeline.php';
+
+    protected $routeFile = __DIR__ . '/../../../../../config/routes.php';
+
     public function __construct(
         Application $application,
         MiddlewareFactory $factory,
@@ -51,27 +55,57 @@ class MiddlewareSetupRunner implements MiddlewareSetupRunnerInterface
 
         // Execute programmatic/declarative middleware pipeline and routing
         // configuration statements
-        (require $pipeLine)($this->application, $this->factory, $this->container);
-        (require $routes)($this->application, $this->factory, $this->container);
+
+        $pipeLineRunner = require $pipeLine;
+        $pipeLineRunner($this->application, $this->factory, $this->container);
+
+        $routeRunner = require $routes;
+        $routeRunner($this->application, $this->factory, $this->container);
 
         return true;
     }
 
-    protected function getPipeline()
+    public function getPipeline()
     {
-        if (file_exists($a = __DIR__ . '/../../../../../config/pipeline.php')) {
-            return $a;
+        if (file_exists($this->pipelineFile)) {
+            return $this->pipelineFile;
         }
 
         return null;
     }
 
-    protected function getRoutes()
+    public function getRoutes()
     {
-        if (file_exists($a = __DIR__ . '/../../../../../config/routes.php')) {
-            return $a;
+        if (file_exists($this->routeFile)) {
+            return $this->routeFile;
         }
 
         return null;
+    }
+
+    /**
+     * @param $path
+     * @throws MissingPipeLineException
+     */
+    public function setPipelineFilePath($path)
+    {
+        if (!file_exists($path)) {
+            throw new MissingPipeLineException($path.' does not exist or is not readable');
+        }
+
+        $this->pipelineFile = $path;
+    }
+
+    /**
+     * @param $path
+     * @throws MissingRoutesException
+     */
+    public function setRoutesFilePath($path)
+    {
+        if (!file_exists($path)) {
+            throw new MissingRoutesException($path.' does not exist or is not readable');
+        }
+
+        $this->routeFile = $path;
     }
 }
