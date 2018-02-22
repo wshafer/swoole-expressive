@@ -8,6 +8,7 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
+  - pecl install swoole
   - composer self-update
   - composer install --prefer-dist -n
 
