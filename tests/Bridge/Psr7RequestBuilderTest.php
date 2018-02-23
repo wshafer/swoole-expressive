@@ -69,11 +69,6 @@ class Psr7RequestBuilderTest extends TestCase
         $this->assertInstanceOf(ServerRequest::class, $psr7Request);
 
         $this->assertEquals(
-            $request['server'] ?? [],
-            $psr7Request->getServerParams()
-        );
-
-        $this->assertEquals(
             $request['files'] ?? [],
             $psr7Request->getUploadedFiles()
         );
@@ -91,11 +86,6 @@ class Psr7RequestBuilderTest extends TestCase
 
         $psr7Request = $this->requestBuilder->build($this->mockRequest);
         $this->assertInstanceOf(ServerRequest::class, $psr7Request);
-
-        $this->assertEquals(
-            $request['server'] ?? [],
-            $psr7Request->getServerParams()
-        );
 
         $this->assertEquals(
             $request['files'] ?? [],
