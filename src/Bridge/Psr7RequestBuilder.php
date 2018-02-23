@@ -67,7 +67,7 @@ class Psr7RequestBuilder
         $return['CONTENT_TYPE'] = $header['content-type'] ?? null;
         $return['REQUEST_METHOD'] = $server['request_method'] ?? 'GET';
         $return['QUERY_STRING'] = $server['query_string'] ?? '';
-        $return['SCRIPT_FILENAME'] = rtrim($return['DOCUMENT_ROOT'],'/').'/'.ltrim($return['SCRIPT_NAME']);
+        $return['SCRIPT_FILENAME'] = rtrim($return['DOCUMENT_ROOT'], '/').'/'.ltrim($return['SCRIPT_NAME']);
         $return['PATH_INFO'] = $server['path_info'] ?? '';
         $return['FCGI_ROLE'] = 'RESPONDER';
         $return['PHP_SELF'] = $return['PATH_INFO'];
