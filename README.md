@@ -5,7 +5,7 @@
 
 This package provides a Zend Expressive 3 runner for Swoole.
 
-Note: Currently Zend Expressive 3 is in Alpha testing.  Due to this
+Note: Currently Zend Expressive 3 is in testing.  Due to this
 this package may stop working with out warning.  Please do not
 use this in production.
 
@@ -19,7 +19,7 @@ $ pecl install swoole
 
 Install Zend Expressive
 ```bash
-$ composer create-project "zendframework/zend-expressive-skeleton:3.0.0alpha3"
+$ composer create-project "zendframework/zend-expressive-skeleton:3.0.0rc1"
 ```
 
 Add the Swoole + Expressive composer package
