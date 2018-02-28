@@ -14,7 +14,7 @@
     "require": {
         "php": "^7.2",
         "ext-swoole": ">=2.1.0",
-        "zendframework/zend-expressive": "^3.0.0alpha5",
+        "zendframework/zend-expressive": "^3.0.0rc1",
         "symfony/console": "^2.8 || ^3.0 || ^4.0",
         "psr/log": "^1.0"
     },
