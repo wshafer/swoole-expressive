@@ -14,12 +14,12 @@ use this in production.
 
 Install Swoole
 ```bash
-$ pecl install swoole
+$ pecl install swoole-2.1.1
 ```
 
 Install Zend Expressive
 ```bash
-$ composer create-project "zendframework/zend-expressive-skeleton:3.0.0rc1"
+$ composer create-project zendframework/zend-expressive-skeleton
 ```
 
 Add the Swoole + Expressive composer package
