@@ -5,11 +5,6 @@
 
 This package provides a Zend Expressive 3 runner for Swoole.
 
-Note: Currently Zend Expressive 3 is in testing.  Due to this
-this package may stop working with out warning.  Please do not
-use this in production.
-
-
 ## Install
 
 Install Swoole
