@@ -77,7 +77,7 @@ class SwooleResponseEmitterTest extends TestCase
             ->willReturn($content);
 
         $this->mockSwooleResponse->expects($this->once())
-            ->method('write')
+            ->method('end')
             ->with($this->equalTo($content));
 
         $this->emitter->toSwoole($this->mockPsr7Response, $this->mockSwooleResponse);
