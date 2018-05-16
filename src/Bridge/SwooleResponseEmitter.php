@@ -44,6 +44,6 @@ class SwooleResponseEmitter
     ) {
         $content = $psr7Response->getBody();
         $content->rewind();
-        $swooleResponse->write($content->getContents());
+        $swooleResponse->end($content->getContents());
     }
 }
