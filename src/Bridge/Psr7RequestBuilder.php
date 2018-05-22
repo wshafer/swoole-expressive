@@ -13,9 +13,9 @@ class Psr7RequestBuilder
     {
         $rawContent = (string) $swooleRequest->rawcontent();
 
-        if (empty($rawContent)) {
-            $body = 'php://input';
-        } else {
+        $body = 'php://input';
+        
+        if (!empty($rawContent)) {
             $body   = new Stream('php://memory', 'wb+');
             $body->write($rawContent);
         }
