@@ -5,16 +5,16 @@ namespace WShafer\SwooleExpressive\Bridge;
 
 use Swoole\Http\Request as SwooleRequest;
 use Zend\Diactoros\ServerRequest;
+use Zend\Diactoros\Stream;
 
 class Psr7RequestBuilder
 {
     public function build(SwooleRequest $swooleRequest)
     {
-        $body = (string) $swooleRequest->rawcontent();
+        $rawContent = (string) $swooleRequest->rawcontent();
 
-        if (empty($body)) {
-            $body = 'php://input';
-        }
+        $body = new Stream('php://memory', 'r+b');
+        $body->write($rawContent);
 
         return new ServerRequest(
             $this->buildServerParams($swooleRequest),
