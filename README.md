@@ -1,8 +1,8 @@
-```
- WARNING: This package is abandoned and no longer maintained. 
- The author suggests using the zendframework/zend-expressive-swoole 
- package instead. 
-```
+**WARNING: This package is abandoned and no longer maintained.**
+
+**Please see the [zendframework/zend-expressive-swoole](https://github.com/zendframework/zend-expressive-swoole) 
+package instead.**
+
 
 # Swoole + Zend Expressive
 [![Build Status](https://travis-ci.org/wshafer/swoole-expressive.svg?branch=master)](https://travis-ci.org/wshafer/swoole-expressive)
